@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "safehernofication",
+  "private_key_id": "ccd503c69b61c0b9e7ee125a4e77e4bbdb59b7fd",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCQrN1vGg0F27ZI\npM+V85ds0yP55LsDgFsFRwNoQwmxAkAbpqHK2Gxg1EjAl+KSormZq20XQ613sEDm\nGFvaVyAmM4tUOMRb+8Oi2KJomK4h/4LFscF0tBE/vb5ogh4RZ4tjZAaxXCMOZFLg\nbGeR9lWafCNPcj7gALVhAFo1PmnIr0NwXJY15gi2C0J/1KhqUsUpyNPsgrdw55cU\n4GA62ETKN+M5IfGxY6hCuzDrhG85LcRzZZufuXJOdQ7IdcGo9r8QRv0xCu7pwZeW\ntk3EfhHTRY8I2PxjzOjL0DbLmi1J7ipu73frIl2r4491BgbjsH6irwreS4fSa/aT\nERUgroAxAgMBAAECggEBAInwF0v3pZUBT8HhSX6p+qUqhnGbEGedOKtGcsw0pofb\nIm56qGXzhRmpLRhbeA3hEl6eoGt+/mRQawA3F1SMnz1tBZmuaiFdYMDiFa7ua5BE\nwlVlTpLLoGqKqYGRFcP4WmDQHMV7mHz/UDljgjgbirC5TR1RSvteEZFDub5sHIXW\njFkOA8skCbLgn/KuHtEmf344CQ/BbNhQKvDkgRVd7zksksKhPj2RBfgVZiFZNuzd\nHOHPKL4DE/jsIM/6S1mWuIEWXkf4nOZdzRhLfOmTDvfyenf3JDrylKgEJk3QtXJg\n9RXgzWS/r4S71h0DkUxcDPEyBP5BaLX2UMABOcW9+oUCgYEA0pSZeZlabTEi26l5\newqTccW6audw47lBJScrljH4DgQ5mOtVwN9B6EOGbhhzM2B0XoCsNkWhoLd+ZoP4\nK0YOu/OIgUEIhDAajAVajwAyJp8gkq5Qu8mqM3qVvMdB79G6jPG3WXkAONannlkv\n2zVz9qlUPXtwJfJLFHMjA/+hrQMCgYEAr+E/HJcjVOylbdVvHovBgLE9xSySHQel\n13v8AuF+3PV6arTDU0sq/ZcrfibhyiJtxNrma2PitJqBya+qzwDHdyCZkJCAQZqX\nJaHmTNqgD3U3DDLusUj/7CL3UUwVMzoKYI0g1axHBhmJoBds6vgUPG/cLyrwj00k\nEFEgamgWtbsCgYAQ7Uj48U7HgC+hIJpXPZ5kgtRdS4VTiMynw+JJDHM4DTbkB+a4\nvjl6BhOEPgrkklhIUGeHZUl8tcM/UlRchiEhEo5idWvN1GAN6VBCNm3RlPD1WXW7\n4pX/1Va7+fhe4qjwM23dj1BpQTfwDpM+N6m+phXTa1y0cCmA11B1PdMtKQKBgQCe\nyZ1REqKzaXNxVeCck1B//4TlHvhLfTwc77L2Zt9CXd3HuKsf6B1IFdMOccwn0i2I\nLJkbG3Lx2wySKibr/KgYxTXfbpZcpFURhLmHaVpYmlq4iMM3C9ECQA9JNodtWFlG\nEiQyxPbaavP1tTCAcrjSV6tSalIFDoAgux2o85CNQQKBgD83x3i6/dXDdZMlpZH4\nYoGu4gb2mgq9kOfstI+h2UUtoChOo3w/idnWroUXAH2jxpKgofY8qwXdBnP1GU5K\na+F1KI2OAcTDAj7jDi9IDJCJiw3x6JeCsxHD9v6rfwvH4woPZWy4ayXRLzqXfpd6\nk2TGb2pDxYkoX0h5u5VB+9Q/\n-----END PRIVATE KEY-----\n",
+  "client_email": "safeher@safehernofication.iam.gserviceaccount.com",
+  "client_id": "115646868531263641815",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/safeher%40safehernofication.iam.gserviceaccount.com"
+}
