@@ -1,0 +1,43 @@
+<!-- deprecated session factory -->
+<beans xmlns:beans="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    
+   <bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${safeHerApp.DATABASE_DRIVER_CLASS}" />
+		<property name="url" value="${safeHerApp.DATABASE_URL}" />
+		<property name="username" value="${safeHerApp.DATABASE_USERNAME}" />
+		<property name="password" value="${safeHerApp.DATABASE_PASSWORD}" />
+	</bean>
+
+    <!-- Hibernate session factory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" >
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan">
+            <list>
+                <value>com.tgi.safeher.entity</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.enable_lazy_load_no_trans">true</prop>
+            </props>
+        </property>       
+    </bean>
+    
+     <bean id="transactionManager"  class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+ 
+    
+    <bean id="persistenceExceptionTranslationPostProcessor"
+        class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+   
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+</beans>
