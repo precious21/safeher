@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jms="http://www.springframework.org/schema/jms"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+              http://www.springframework.org/schema/beans/spring-beans.xsd
+              http://www.springframework.org/schema/jms
+              http://www.springframework.org/schema/jms/spring-jms.xsd">
+
+
+	<!-- Infrastructure -->
+	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="failover://(vm://embedded)?jms.redeliveryPolicy.maximumRedeliveries=5"/>
+		<property name="useAsyncSend" value="true"></property> 
+	</bean>
+	
+	<bean id="cachingConnectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
+		<property name="targetConnectionFactory" ref="connectionFactory"/>
+	</bean>
+	
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="cachingConnectionFactory"/>
+		<property name="defaultDestination" ref="rideRequestQueue"/>
+	</bean>
+	
+	<bean id="jmsErrorTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="cachingConnectionFactory"/>
+		<property name="defaultDestination" ref="rideRequestErrorQueue"/>
+	</bean>
+	
+	<bean id="jmsTopicTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="cachingConnectionFactory"/>
+		<property name="pubSubDomain" value="true"/>
+	</bean>
+	
+	
+	<!-- Destinations -->
+	<bean id="syncTestQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg value="test.sync.queue"/>
+	</bean>
+	
+	<bean id="rideRequestQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg value="ride.request.queue"/>
+	</bean>
+	
+	<bean id="rideRequestErrorQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg value="ride.request.error.queue"/>
+	</bean>
+	
+	<bean id="asyncTestQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg value="test.async.queue"/>
+	</bean>
+	
+	<bean id="testTopic" class="org.apache.activemq.command.ActiveMQTopic">
+		<constructor-arg value="test.topic"/>
+	</bean>
+	
+	<!-- <jms:annotation-driven/> -->
+	
+	<!-- Listeners -->
+	<jms:listener-container connection-factory="connectionFactory" concurrency="1-20">
+		<jms:listener destination="ride.request.queue" ref="asyncReceiver" method="receiveMessage" />
+	</jms:listener-container>
+	
+	<jms:listener-container connection-factory="connectionFactory" concurrency="1-20">
+		<jms:listener destination="ride.request.error.queue" ref="asyncErrorReceiver" method="receiveMessage" />
+	</jms:listener-container>
+	
+	
+	
+</beans>
